@@ -1,0 +1,3 @@
+print a large query while debugging:
+     set print elements 0
+     print (char*)query

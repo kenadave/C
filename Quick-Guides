@@ -1,3 +1,7 @@
 print a large query while debugging:
      set print elements 0
      print (char*)query
+
+
+linux command to get the folder with largest size
+du -sh */ | sort -hr | head -10

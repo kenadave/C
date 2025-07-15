@@ -8,3 +8,20 @@ du -sh */ | sort -hr | head -10
 
 cleartool command for diff with untruncated lines
 cleartool diff -serial_format "/vobs/revenue_pipe/java/pdfgen/pdflayoutmanager/src/PdfFromSchema.java@@/main/25wk9_dev/LATEST" "/vobs/revenue_pipe/java/pdfgen/pdflayoutmanager/src/PdfFromSchema.java@@/main/LATEST"
+
+
+# Redirect all diffs to single file with headers
+{
+echo "=== MERGE REVIEW REPORT ==="
+echo "Date: $(date)"
+echo ""
+for file in "/vobs/revenue_pipe/iap/Makefile" "/vobs/revenue_pipe/iar/create_supervisoraudit_report/src/SupervisorAuditReport.java" "/vobs/revenue_pipe/java/pdfgen/pdflayoutmanager/src/PdfFromSchema.java" "/vobs/revenue_pipe/Makefile_rpjava" "/vobs/revenue_pipe/pkg/rpjava/pkgdef.xml" "/vobs/revenue_pipe/sis/extractor/isidec_attachment_generator/common/src/DaoMtTkdcCpnExrln.java" "/vobs/revenue_pipe/sis/extractor/isidec_attachment_generator/common/src/DaoMtTktDocRln.java" "/vobs/revenue_pipe/sis/extractor/isidec_attachment_generator/common/src/DaoSptgDocImgIdx.java" "/vobs/revenue_pipe/sis/extractor/Makefile" "/vobs/revenue_pipe/sis/intln_database/src/DaoIntlnSptgDocImgIdx.java" "/vobs/revenue_pipe/sis/loader/isidec_Facsimile_loader/src/FacsimilePDfCreator.java" "/vobs/revenue_pipe/sis/processor/Makefile"; do
+    echo "=== $file ==="
+    cleartool diff -serial_format "$file@@/main/25wk9_dev/LATEST" "$file@@/main/LATEST"
+    echo ""
+    echo ""
+    echo "=================================================================="
+    echo ""
+    echo ""
+done
+} > merge_review.txt

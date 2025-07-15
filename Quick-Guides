@@ -5,3 +5,6 @@ print a large query while debugging:
 
 linux command to get the folder with largest size
 du -sh */ | sort -hr | head -10
+
+cleartool command for diff with untruncated lines
+cleartool diff -serial_format "/vobs/revenue_pipe/java/pdfgen/pdflayoutmanager/src/PdfFromSchema.java@@/main/25wk9_dev/LATEST" "/vobs/revenue_pipe/java/pdfgen/pdflayoutmanager/src/PdfFromSchema.java@@/main/LATEST"

@@ -1,0 +1,20 @@
+1) To login
+   oc login --token=sha256~NXfInzYZl3hx2rHC5bg30iK-3LwZ-qCF990-kxhBzwc --server=https://api.revact-rvp-1d.j4gi.p1.openshiftapps.com:6443
+   if in git bash append ./
+
+2) To start a debug shell
+   ./oc debug deploy/<cluster-name>
+   ./oc debug deploy/iap-d8788063-green
+   from cmd:
+   oc run temp-shell --rm -i -t --image=image-registry.openshift-image-registry.svc:5000/rac-racrisiapw-dev/iap:B-1116467-fixing_whitelabel_error@sha256:e8aec3cf7ce1d8997d6424f5b28e254e4fb49e4f21480ce3131d4f413ef670f6 -- sh
+
+3) To get the pods details
+   ./oc get deployments
+
+4) To get the logs 
+   oc logs <pod-name> -n <namespace>
+   oc logs iap-d8788063-7d97c76757-w9ks2 -n rac-racrisiapw-dev
+
+5) To select a project
+   oc project <namespace>
+   oc project rac-racrisiapw-dev

@@ -25,3 +25,8 @@ for file in "/vobs/revenue_pipe/iap/Makefile" "/vobs/revenue_pipe/iar/create_sup
     echo ""
 done
 } > merge_review.txt
+
+
+cleartool ls -view_only -recurse | grep -v -E "build|lib.private"
+cleartool mkelem -nc SanitizerUtil.java
+cleartool lsco -cvi -r -s

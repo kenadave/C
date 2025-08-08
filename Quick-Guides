@@ -30,3 +30,6 @@ done
 cleartool ls -view_only -recurse | grep -v -E "build|lib.private"
 cleartool mkelem -nc SanitizerUtil.java
 cleartool lsco -cvi -r -s
+
+to add print statement in each case where the method contains switch
+sed -i '/^void method_name(/,/^}$/s/case \([^:]*\):/case \1:\n    printf("Case \1 executed\\n");/' IAPD106.c
